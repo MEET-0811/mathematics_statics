@@ -408,6 +408,30 @@ $$P(\text{Success}) \uparrow \text{ if } \begin{cases}
 
 ---
 
+## 🎯 Interactive Features
+
+### 🎬 Demo Video
+
+<details>
+<summary><b>▶️ Watch Project Demo Video</b></summary>
+
+Click below to view a complete walkthrough of the Expectation Decider project:
+
+[![Demo Video](https://img.shields.io/badge/Watch-Demo%20Video-red?style=for-the-badge&logo=youtube)](https://youtu.be/your-video-id-here)
+
+**Video Contents:**
+- 📊 Overview of the dataset and analysis
+- 🎓 Step-by-step probability calculations
+- 📈 Data visualizations and interpretations
+- 🎯 Key findings and recommendations
+- 💡 How to use the Jupyter notebook
+
+**Duration:** ~15 minutes | **Level:** Beginner-Friendly
+
+</details>
+
+---
+
 ### 📚 Learning Path
 
 <details>
@@ -479,16 +503,7 @@ jupyter notebook "Expectation Decider/Expectation Decider.ipynb"
 
 ---
 
-## 📞 Support & Resources
 
-| Resource | Link | Description |
-|----------|------|-------------|
-| 📘 Probability Theory | [Khan Academy](https://www.khanacademy.org/) | Free probability courses |
-| 📊 Statistics Guide | [StatQuest](https://www.youtube.com/c/joshstarmer) | YouTube statistics tutorials |
-| 🐍 Python Docs | [Python.org](https://www.python.org/) | Official Python documentation |
-| 📈 Pandas Tutorial | [Pandas Docs](https://pandas.pydata.org/) | Data manipulation guide |
-
----
 
 ## 🎉 Project Statistics
 
@@ -517,28 +532,7 @@ jupyter notebook "Expectation Decider/Expectation Decider.ipynb"
 
 ---
 
-## 📄 License & Attribution
 
-**Project Name:** Expectation Decider  
-**Author:** MEET-0811  
-**Repository:** [mathematics_statics](https://github.com/MEET-0811/mathematics_statics)  
-**Dataset:** Expectation Decider Data.csv (200 student records)  
-**Type:** Educational Project  
-
----
-
-## 🌟 Key Takeaways
-
-### For Students 🎓
-> **"Attendance and consistent study habits are your best predictors of exam success. Participate in group discussions for additional boost!"**
-
-### For Educators 👨‍🏫
-> **"Use this data-driven analysis to identify at-risk students and encourage attendance and collaborative learning."**
-
-### For Data Scientists 📊
-> **"This project demonstrates practical applications of probability theory in real-world educational data."**
-
----
 
 <div align="center">
 
