@@ -356,25 +356,12 @@ $$P(\text{Pass} \| \text{High}) = \frac{P(\text{High} \| \text{Pass}) \cdot P(\t
 
 Learn more about these concepts through video resources:
 
-### 📹 Probability Basics
 
-[![Probability Basics](https://img.shields.io/badge/📺_Watch_Probability_Basics-FF0000?style=for-the-badge&logo=youtube)](https://www.youtube.com/watch?v=uzkc-qNVoOk)
 
 ### 📹 Conditional Probability
 
-[![Conditional Probability](https://img.shields.io/badge/📺_Watch_Conditional_Probability-FF0000?style=for-the-badge&logo=youtube)](https://www.youtube.com/watch?v=PmD5ibQO5OU)
+[![Demo Video](https://img.shields.io/badge/📺_Watch_Conditional_Probability-FF0000?style=for-the-badge&logo=youtube)](https://www.youtube.com/watch?v=PmD5ibQO5OU)
 
-### 📹 Bayes' Theorem Explained
-
-[![Bayes Theorem](https://img.shields.io/badge/📺_Watch_Bayes_Theorem-FF0000?style=for-the-badge&logo=youtube)](https://www.youtube.com/watch?v=HZGCoVwiada)
-
-### 📹 Binomial Distribution
-
-[![Binomial Distribution](https://img.shields.io/badge/📺_Watch_Binomial_Distribution-FF0000?style=for-the-badge&logo=youtube)](https://www.youtube.com/watch?v=qIzC1-9PwQo)
-
-### 📹 Statistics for Data Science
-
-[![Statistics for DS](https://img.shields.io/badge/📺_Watch_Statistics_for_DS-FF0000?style=for-the-badge&logo=youtube)](https://www.youtube.com/watch?v=xxpc-SXSDKY)
 
 ---
 
@@ -493,19 +480,7 @@ After completing this project, you will understand:
 - ✅ Data visualization techniques
 - ✅ Real-world applications of probability
 
----
 
-## 📚 References & Resources
-
-### 📖 Recommended Books
-- "Introduction to Probability" - Dimitri P. Bertsekas
-- "Statistical Rethinking" - Richard McElreath
-- "Probability and Statistics for Engineers and Scientists" - Walpole & Myers
-
-### 🌐 Online Resources
-- [Khan Academy - Probability](https://www.khanacademy.org/math/probability)
-- [StatQuest with Josh Starmer](https://www.youtube.com/user/joshstarmer)
-- [3Blue1Brown - Essence of Statistics](https://www.youtube.com/c/3Blue1Brown)
 
 ---
 
@@ -519,16 +494,12 @@ Contributions are welcome! Feel free to:
 
 ---
 
-## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
-
----
 
 ## 👨‍💻 Author
 
 **MEET-0811**  
-📧 Email: [Your Email]  
+ 
 🔗 GitHub: [@MEET-0811](https://github.com/MEET-0811)
 
 ---
@@ -543,16 +514,6 @@ If you find this project helpful, please consider:
 
 ---
 
-## 📞 Contact & Questions
 
-Have questions? Feel free to open an issue or reach out!
-
----
-
-<div align="center">
-
-### Made with ❤️ for Statistics Enthusiasts
-
-**Happy Learning! 🚀📊✨**
 
 </div>
