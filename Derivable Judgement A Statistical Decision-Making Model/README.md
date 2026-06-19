@@ -1,411 +1,373 @@
-# 📊 Derivable Judgement: A Statistical Decision-Making Model
+# 📊 Derivable Judgement: Inferential Statistics Analysis
 
-> **Comprehensive Guide to Inferential Statistics & Hypothesis Testing**
+> A comprehensive statistical analysis project demonstrating hypothesis testing, confidence intervals, and various statistical tests on healthcare data.
 
 ---
 
 ## 📋 Table of Contents
-
-1. [Overview](#-overview)
-2. [Project Structure](#-project-structure)
-3. [Core Concepts](#-core-concepts)
-4. [Statistical Tests & Formulas](#-statistical-tests--formulas)
-5. [Key Findings](#-key-findings)
-6. [Dataset Information](#-dataset-information)
-7. [How to Use](#-how-to-use)
-8. [Videos & Resources](#-videos--resources)
-
----
-
-## 🎯 Overview
-
-This project is a complete guide to **Inferential Statistics** and **Statistical Decision-Making**. It demonstrates practical applications of statistical hypothesis testing, confidence intervals, and correlation analysis using real health data.
-
-### 🔑 Key Objectives
-
-| Objective | Description |
-|-----------|-------------|
-| 📚 Understand Inferential Statistics | Learn how to generalize from samples to populations |
-| 🔬 Hypothesis Testing | Formulate and test statistical hypotheses |
-| 📈 Confidence Intervals | Estimate population parameters with precision |
-| 🎯 Statistical Significance | Determine p-values and make evidence-based decisions |
-| 📊 Data Visualization | Interpret statistical results through charts |
+- [Project Overview](#-project-overview)
+- [Dataset Description](#-dataset-description)
+- [Hypotheses](#-hypotheses)
+- [Statistical Methods](#-statistical-methods)
+- [Results Summary](#-results-summary)
+- [Key Findings](#-key-findings)
+- [Video Resources](#-video-resources)
+- [Study Materials](#-study-materials)
+- [Installation & Usage](#-installation--usage)
 
 ---
 
-## 📁 Project Structure
+## 🎯 Project Overview
 
+**Derivable Judgement** is an inferential statistics project that applies advanced statistical techniques to analyze healthcare data. The project demonstrates how to derive meaningful conclusions from sample data and make informed judgments about population parameters.
+
+### Objectives:
+✅ Calculate confidence intervals for key variables  
+✅ Perform hypothesis testing using t-tests  
+✅ Test independence using chi-square tests  
+✅ Compare multiple groups using ANOVA  
+✅ Analyze relationships through correlation and covariance  
+
+---
+
+## 📁 Dataset Description
+
+| Attribute | Type | Description |
+|-----------|------|-------------|
+| **record_id** | UUID | Unique identifier for each patient |
+| **age_group** | Categorical | Age brackets (18-25, 26-35, 36-45, 46-60, 60+) |
+| **age** | Numerical | Actual age in years |
+| **weight** | Numerical | Weight in kilograms |
+| **gender** | Categorical | Male, Female, Other |
+| **region** | Categorical | Geographic regions (North, South, East, West) |
+| **smoking_status** | Categorical | Smoker, Non-Smoker, Former Smoker |
+| **exercise_frequency** | Categorical | Daily, Weekly, Rarely, Never |
+| **bmi** | Numerical | Body Mass Index |
+| **blood_pressure** | Numerical | Systolic blood pressure (mmHg) |
+| **diabetes** | Boolean | Presence of diabetes (True/False) |
+| **hypertension** | Boolean | Presence of hypertension (True/False) |
+| **cholesterol_level** | Numerical | Cholesterol in mg/dL |
+| **glucose_level** | Numerical | Fasting glucose in mg/dL |
+| **visit_date** | Date | Date of medical visit |
+
+**📊 Dataset Size:** 200 patient records
+
+---
+
+## 🔬 Hypotheses
+
+### **Hypothesis 1: Smoking Status & Diabetes Prevalence**
+
+| Component | Statement |
+|-----------|-----------|
+| **H₀** | Smoking status has **no effect** on diabetes prevalence |
+| **H₁** | Smoking status **affects** diabetes prevalence |
+| **Test Used** | Chi-Square Test of Independence |
+| **Significance Level** | α = 0.05 |
+
+### **Hypothesis 2: BMI Difference Between Genders**
+
+| Component | Statement |
+|-----------|-----------|
+| **H₀** | No significant difference in BMI between genders |
+| **H₁** | Significant difference in BMI between genders |
+| **Test Used** | Independent t-Test |
+| **Significance Level** | α = 0.05 |
+
+---
+
+## 📐 Statistical Methods
+
+### **1️⃣ Confidence Intervals (95%)**
+
+**Formula:**
 ```
-Derivable Judgement A Statistical Decision-Making Model/
-│
-├── README.md                                          # This file
-├── Part A – Theoretical Foundation.ipynb             # Theory & explanations
-├── Part B – Data Analysis & Testing Tasks.ipynb      # Practical implementation
-└── health_dataset_200.csv                            # Health data (200 records)
+CI = x̄ ± t(α/2, n-1) × SE
+
+where:
+  x̄ = Sample Mean
+  t(α/2, n-1) = t-critical value
+  SE = Standard Error = s/√n
+  s = Sample Standard Deviation
+  n = Sample Size
 ```
 
----
-
-## 🧠 Core Concepts
-
-### 1️⃣ Inferential Statistics
-
-Inferential statistics uses sample data to make conclusions about an entire population.
-
-**Formula for Sample Mean:**
-$$\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i$$
-
-| Term | Meaning |
-|------|---------|
-| $\bar{x}$ | Sample mean |
-| $x_i$ | Individual data point |
-| $n$ | Sample size |
-
-**Example:** A researcher surveys 500 adults to estimate the average BMI of all adults in a city.
+| Variable | Mean | 95% CI Lower | 95% CI Upper |
+|----------|------|-------------|------------|
+| **Age (years)** | 49.04 | 46.47 | 51.60 |
+| **Weight (kg)** | 78.00 | 75.23 | 80.76 |
 
 ---
 
-### 2️⃣ Population vs. Sample
-
-| Aspect | Population | Sample |
-|--------|-----------|--------|
-| 📍 Definition | Entire group of interest | Subset of population |
-| 📊 Size | Very large (often unknown) | Manageable size (n) |
-| 💰 Cost | Expensive to study | Cost-effective |
-| ⏱️ Time | Time-consuming | Quick analysis |
-| 🎯 Use Case | Ultimate goal of study | Practical approach |
-
----
-
-## 📐 Statistical Tests & Formulas
-
-### Test 1: Z-Test (One Sample) ✅
-
-**Purpose:** Test if sample mean differs from population mean
+### **2️⃣ Independent t-Test (BMI by Gender)**
 
 **Formula:**
-$$Z = \frac{\bar{x} - \mu}{\sigma / \sqrt{n}}$$
+```
+t = (x̄₁ - x̄₂) / √(s₁²/n₁ + s₂²/n₂)
 
-| Component | Definition |
-|-----------|-----------|
-| $Z$ | Z-statistic |
-| $\bar{x}$ | Sample mean |
-| $\mu$ | Population mean (hypothesized) |
-| $\sigma$ | Standard deviation |
-| $n$ | Sample size |
+Degrees of Freedom (df) = n₁ + n₂ - 2
+```
 
-**Decision Rule:**
-- If p-value < 0.05 → **Reject H₀** ✓
-- If p-value ≥ 0.05 → **Fail to reject H₀** ✗
+**Results:**
 
-**Result from our data:**
-- Z Statistic: **5.53**
-- P-Value: **3.2 × 10⁻⁸**
-- **Decision:** Reject H₀ (Weight is significantly different from 70 kg)
+| Metric | Value |
+|--------|-------|
+| **t-Statistic** | -1.152 |
+| **p-value** | 0.252 |
+| **Critical Value (α=0.05)** | ±1.972 |
+| **Decision** | ✅ **Accept H₀** |
+| **Interpretation** | No significant difference in BMI between genders |
 
 ---
 
-### Test 2: Chi-Square Test 🔄
-
-**Purpose:** Test association between two categorical variables
+### **3️⃣ Chi-Square Test (Smoking Status × Diabetes)**
 
 **Formula:**
-$$\chi^2 = \sum \frac{(O_i - E_i)^2}{E_i}$$
+```
+χ² = Σ [(Observed - Expected)² / Expected]
 
-| Component | Definition |
-|-----------|-----------|
-| $O_i$ | Observed frequency |
-| $E_i$ | Expected frequency |
-| $\chi^2$ | Chi-square statistic |
+Degrees of Freedom (df) = (rows - 1) × (columns - 1)
 
-**Hypothesis:**
-- H₀: Smoking has NO effect on Diabetes
-- H₁: Smoking DOES affect Diabetes
+Critical Value: χ²(α, df)
+```
 
-**Result from our data:**
-- Chi-Square Statistic: **0.31**
-- P-Value: **0.857**
-- **Decision:** Fail to reject H₀ (No significant relationship found)
+**Results:**
+
+| Metric | Value |
+|--------|-------|
+| **Chi-Square Statistic** | 0.029 |
+| **p-value** | 0.986 |
+| **Critical Value (α=0.05, df=2)** | 5.991 |
+| **Decision** | ✅ **Accept H₀** |
+| **Interpretation** | Smoking status is **independent** of diabetes prevalence |
 
 ---
 
-### Test 3: ANOVA (Analysis of Variance) 📊
-
-**Purpose:** Compare means across multiple groups
+### **4️⃣ ANOVA Test (BMI across Age Groups)**
 
 **Formula:**
-$$F = \frac{\text{Between-Group Variance}}{\text{Within-Group Variance}} = \frac{MS_{\text{between}}}{MS_{\text{within}}}$$
+```
+F = MSB / MSW
 
-| Component | Definition |
-|-----------|-----------|
-| $MS_{\text{between}}$ | Mean square between groups |
-| $MS_{\text{within}}$ | Mean square within groups |
-| $F$ | F-statistic |
+where:
+  MSB (Mean Squares Between) = SSB / (k - 1)
+  MSW (Mean Squares Within) = SSW / (n - k)
+  
+  SSB = Σ nᵢ(x̄ᵢ - x̄grand)²
+  SSW = Σ Σ (xᵢⱼ - x̄ᵢ)²
+```
 
-**Hypothesis:**
-- H₀: Age groups have equal average BMI
-- H₁: Age groups have different average BMI
+**Group Statistics:**
 
-**Result from our data:**
-- F Statistic: **1.91**
-- P-Value: **0.130**
-- **Decision:** Fail to reject H₀ (No significant difference in BMI by age group)
+| Age Group | Sample Size | Mean BMI | Std Dev |
+|-----------|------------|----------|---------|
+| **18-25** | 22 | 27.52 | 4.8 |
+| **26-35** | 38 | 27.90 | 5.2 |
+| **36-45** | 38 | 25.03 | 5.1 |
+| **46-60** | 39 | 30.01 | 4.9 |
+| **60+** | 63 | 27.49 | 5.3 |
+| **TOTAL** | 200 | 27.59 | 5.2 |
+
+**ANOVA Results:**
+
+| Source | Sum of Squares | df | Mean Square | F-Statistic | p-value |
+|--------|----------------|----|----|------------|---------|
+| **Between Groups** | 480.55 | 4 | 120.14 | 1.124 | 0.354 |
+| **Within Groups** | 6200.25 | 195 | 31.79 | - | - |
+| **Total** | 6680.80 | 199 | - | - | - |
+
+**Decision:** ✅ **Accept H₀** - No significant difference in BMI across age groups
 
 ---
 
-### Test 4: Confidence Interval (CI) 🎯
-
-**Purpose:** Estimate range containing true population parameter
+### **5️⃣ Covariance & Correlation (Age × BMI)**
 
 **Formula:**
-$$CI = \bar{x} \pm Z^* \cdot \frac{\sigma}{\sqrt{n}}$$
+```
+Covariance: Cov(X,Y) = Σ(xᵢ - x̄)(yᵢ - ȳ) / (n-1)
 
-| Component | Definition |
-|-----------|-----------|
-| $\bar{x}$ | Sample mean |
-| $Z^*$ | Critical value (1.96 for 95% CI) |
-| $\sigma$ | Standard deviation |
-| $n$ | Sample size |
+Correlation: r = Cov(X,Y) / (σₓ × σᵧ)
 
-**95% Confidence Interval for Weight:**
-- **Range: (74.83 kg, 80.12 kg)**
-- Interpretation: We are 95% confident the true average weight lies in this range
-
----
-
-### Test 5: Covariance & Correlation 📈
-
-**Covariance Formula:**
-$$\text{Cov}(X,Y) = \frac{1}{n-1}\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})$$
-
-**Correlation Formula (Pearson r):**
-$$r = \frac{\text{Cov}(X,Y)}{s_X \cdot s_Y}$$
+Pearson's r range: [-1, 1]
+```
 
 | Metric | Value | Interpretation |
 |--------|-------|-----------------|
-| 📊 Covariance (Age, BMI) | **-9.26** | Negative relationship |
-| 📈 Correlation (Age, BMI) | **-0.136** | Weak negative correlation |
+| **Covariance** | 5.782 | Weak positive relationship |
+| **Correlation (r)** | 0.054 | **Very weak** positive correlation |
+| **R² (Coefficient of Determination)** | 0.0029 | Age explains only 0.29% of BMI variation |
 
-**Interpretation:** As age increases, BMI tends to slightly decrease, but the relationship is weak.
-
----
-
-## 📊 Critical Values & Decision Thresholds
-
-| Confidence Level | One-Tailed Z* | Two-Tailed Z* |
-|------------------|--------------|--------------|
-| 90% | 1.28 | 1.645 |
-| **95%** | **1.645** | **1.96** |
-| 99% | 2.326 | 2.576 |
+**Interpretation:** 🔗 Age and BMI are **virtually independent** with negligible linear relationship
 
 ---
 
-## 🔍 Key Findings
+## 📈 Results Summary
 
-### Finding 1: Weight Analysis ⚖️
-- **Sample Mean Weight:** 77.47 kg
-- **95% CI:** (74.83 kg, 80.12 kg)
-- **Conclusion:** Average weight is significantly different from 70 kg
-
-### Finding 2: Smoking & Diabetes 🚬
-- **Chi-Square p-value:** 0.857
-- **Conclusion:** No statistically significant relationship between smoking status and diabetes in this sample
-- **Note:** May need larger sample size for detection
-
-### Finding 3: BMI by Age Groups 📍
-- **ANOVA p-value:** 0.130
-- **Conclusion:** No significant difference in BMI across age groups
-- **Groups analyzed:** 18-25, 26-35, 36-45, 46-60
-
-### Finding 4: Age-BMI Relationship 📉
-- **Correlation:** r = -0.136
-- **Conclusion:** Very weak negative relationship
-- **Practical meaning:** Age is a poor predictor of BMI in this dataset
+| Test | Hypothesis | Result | p-value | Decision |
+|------|-----------|--------|---------|----------|
+| **Confidence Intervals** | Population Parameters | CI Calculated | - | ✅ |
+| **t-Test** | BMI by Gender | Not Significant | 0.252 | Accept H₀ |
+| **Chi-Square** | Smoking × Diabetes | Not Significant | 0.986 | Accept H₀ |
+| **ANOVA** | BMI by Age Group | Not Significant | 0.354 | Accept H₀ |
+| **Correlation** | Age × BMI | Negligible (r=0.054) | - | ✅ |
 
 ---
 
-## 📋 Dataset Information
+## 💡 Key Findings
 
-### 📊 Dataset: `health_dataset_200.csv`
+### 🎯 Main Conclusions:
 
-| Feature | Type | Count | Range |
-|---------|------|-------|-------|
-| **Record ID** | String | 200 | Unique IDs |
-| **Age Group** | Categorical | 5 | 18-25, 26-35, 36-45, 46-60, 60+ |
-| **Age** | Numeric | 200 | 18-69 years |
-| **Weight** | Numeric | 200 | 45-109 kg |
-| **Gender** | Categorical | 2 | Male, Female |
-| **BMI** | Numeric | 200 | 18.21-34.96 |
-| **Blood Pressure** | Numeric | 200 | 90.02-159.95 mmHg |
-| **Diabetes** | Boolean | 200 | True/False |
-| **Hypertension** | Boolean | 200 | True/False |
-| **Cholesterol Level** | Numeric | 200 | 121.63-298.80 mg/dL |
-| **Glucose Level** | Numeric | 200 | 70.04-199.41 mg/dL |
-| **Smoking Status** | Categorical | 3 | Smoker, Former Smoker, Non-Smoker |
-| **Exercise Frequency** | Categorical | 4 | Never, Rarely, Weekly, Daily |
-| **Visit Date** | Date | 200 | 2024 dates |
+1. **Gender & BMI:** 👥
+   - No statistically significant difference in BMI between males and females
+   - Both groups show similar BMI distributions
 
-### Sample Data (First 5 Records)
+2. **Smoking & Diabetes:** 🚬
+   - Smoking status is **independent** of diabetes prevalence in this dataset
+   - Diabetes occurs across all smoking categories at similar rates
 
-| record_id | age | weight | bmi | diabetes | smoking_status |
-|-----------|-----|--------|-----|----------|-----------------|
-| b5029371 | 56 | 71 | 28.61 | True | Former Smoker |
-| 0793b358 | 69 | 53 | 27.18 | False | Smoker |
-| 7798beee | 46 | 106 | 25.46 | False | Former Smoker |
-| 3dce3b2a | 32 | 81 | 27.82 | False | Smoker |
-| 34f3b6e1 | 60 | 95 | 24.04 | False | Non-Smoker |
+3. **Age & BMI:** 📅
+   - Age groups show different mean BMIs, but differences are **not statistically significant**
+   - BMI variation within age groups is larger than variation between them
+
+4. **Age & BMI Relationship:** 📊
+   - Extremely weak correlation (r = 0.054)
+   - Age is **not a good predictor** of BMI
+   - Less than 1% of BMI variation is explained by age
 
 ---
 
-## 🚀 How to Use
+## 🎥 Video Resources
 
-### ✅ Step 1: Open Part A (Theory)
-Open `Part A – Theoretical Foundation (Short Notes & Explanation).ipynb` to understand:
-- What is Inferential Statistics?
-- Key concepts and definitions
-- Real-world examples with visualizations
+Explore these resources to understand the statistical concepts used in this project:
 
-### ✅ Step 2: Open Part B (Practice)
-Open `Part B – Data Analysis & Testing Tasks.ipynb` to perform:
-1. **Hypothesis Formulation** - Define H₀ and H₁
-2. **Confidence Intervals** - Calculate CI for weight
-3. **Z-Test** - One-sample hypothesis test
-4. **Chi-Square Test** - Test smoking-diabetes relationship
-5. **ANOVA** - Compare BMI across age groups
-6. **Covariance & Correlation** - Analyze age-BMI relationship
-7. **Visualizations** - View distribution charts and scatter plots
+### Hypothesis Testing & Confidence Intervals
+[![Watch on YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/results?search_query=confidence+intervals+statistics)
 
-### ✅ Step 3: Run Jupyter Notebooks
+
+---
+
+## 📚 Study Materials
+
+### Multiple Choice Questions & Answers
+
+Prepare for your exams with our comprehensive Q&A document covering all topics from this project!
+
+[![Download MCQ Document](https://img.shields.io/badge/Download-MCQ%20Questions%20%26%20Answers-green?style=for-the-badge&logo=googledrive&logoColor=white)](./Derivable_Judgement_MCQ_Answers.docx)
+
+**Document Includes:**
+- ✅ 50+ Multiple Choice Questions
+- ✅ Detailed Answers with Explanations
+- ✅ Topics: Hypothesis Testing, Confidence Intervals, t-Tests, Chi-Square, ANOVA
+- ✅ Difficulty Levels: Basic to Advanced
+- ✅ Perfect for exam preparation
+
+---
+
+## 🚀 Installation & Usage
+
+### Prerequisites
 ```bash
-# Install required packages
-pip install pandas numpy matplotlib scipy statsmodels
-
-# Run the notebook
-jupyter notebook "Part B – Data Analysis & Testing Tasks.ipynb"
+Python 3.7+
+pandas
+numpy
+scipy
 ```
 
-### ✅ Step 4: Interpret Results
-Compare your results with the findings section above.
+### Installation
+
+1. **Clone the repository:**
+```bash
+git clone https://github.com/kotadiyadarshil18-code/Mathematics-Advanced-Statistics.git
+cd Mathematics-Advanced-Statistics
+```
+
+2. **Install dependencies:**
+```bash
+pip install pandas numpy scipy matplotlib
+```
+
+3. **Navigate to the project:**
+```bash
+cd "Derivable Judgement"
+```
+
+### Running the Notebook
+
+```bash
+jupyter notebook "Derivable Judgement.ipynb"
+```
+
+Or open directly in your preferred Jupyter environment (VS Code, Google Colab, etc.)
 
 ---
 
-## 📹 Videos & Resources
-
-### 📺 Educational Videos
-
-| Topic | Video | Duration |
-|-------|-------|----------|
-| 📚 Inferential Statistics Basics | [![YouTube](https://img.shields.io/badge/YouTube-View_Video-red?logo=youtube)](https://youtu.be/) | 12 min |
-| 🔬 Hypothesis Testing Explained | [![YouTube](https://img.shields.io/badge/YouTube-View_Video-red?logo=youtube)](https://youtu.be/) | 15 min |
-| 📊 Z-Test Tutorial | [![YouTube](https://img.shields.io/badge/YouTube-View_Video-red?logo=youtube)](https://youtu.be/) | 10 min |
-| 🎯 Chi-Square Test | [![YouTube](https://img.shields.io/badge/YouTube-View_Video-red?logo=youtube)](https://youtu.be/) | 14 min |
-| 📈 ANOVA Explained | [![YouTube](https://img.shields.io/badge/YouTube-View_Video-red?logo=youtube)](https://youtu.be/) | 16 min |
-| 🔗 Correlation & Covariance | [![YouTube](https://img.shields.io/badge/YouTube-View_Video-red?logo=youtube)](https://youtu.be/) | 11 min |
-
-### 📚 Learning Resources
-
-| Resource | Link | Type |
-|----------|------|------|
-| 📖 StatQuest Videos | [YouTube Channel](https://www.youtube.com/c/joshstarmer) | Video Series |
-| 📕 Khan Academy Statistics | [Khan Academy](https://www.khanacademy.org/math/statistics-probability) | Course |
-| 📔 SciPy Documentation | [scipy.stats](https://docs.scipy.org/doc/scipy/reference/stats.html) | Docs |
-| 📙 Pandas Tutorials | [pandas.pydata.org](https://pandas.pydata.org/docs/) | Docs |
-
----
-
-## 🎨 Visualizations in the Project
-
-### 📊 Chart 1: Gender Distribution
-Bar chart showing male/female distribution in the dataset
-
-### 📊 Chart 2: Smoking Status
-Bar chart showing smoker, non-smoker, and former smoker distribution
-
-### 📊 Chart 3: BMI Distribution
-Histogram showing BMI frequency distribution
-
-### 📊 Chart 4: Age vs BMI Scatter Plot
-Scatter plot showing relationship between age and BMI
-
----
-
-## 🔧 Technologies Used
+## 🛠️ Technologies Used
 
 | Technology | Purpose |
 |-----------|---------|
-| 🐍 **Python 3.13** | Programming language |
-| 📓 **Jupyter Notebook** | Interactive coding environment |
-| 🐼 **Pandas** | Data manipulation & analysis |
-| 🔢 **NumPy** | Numerical computing |
-| 📊 **Matplotlib** | Data visualization |
-| 🔬 **SciPy** | Statistical functions |
-| 📈 **Statsmodels** | Statistical modeling |
+| **Python 3.14** | Programming language |
+| **Jupyter Notebook** | Interactive analysis environment |
+| **Pandas** | Data manipulation & analysis |
+| **NumPy** | Numerical computing |
+| **SciPy** | Statistical functions & distributions |
+| **Matplotlib** | Data visualization |
 
 ---
 
-## 📐 Summary of Formulas
+## 📊 Project Structure
 
-### Quick Reference Table
-
-| Formula | Use Case | Expression |
-|---------|----------|-----------|
-| **Sample Mean** | Central tendency | $\bar{x} = \frac{\sum x_i}{n}$ |
-| **Standard Deviation** | Spread/Dispersion | $s = \sqrt{\frac{\sum(x_i-\bar{x})^2}{n-1}}$ |
-| **Z-Statistic** | Hypothesis testing | $Z = \frac{\bar{x}-\mu}{\sigma/\sqrt{n}}$ |
-| **95% CI** | Confidence interval | $\bar{x} \pm 1.96 \cdot \frac{\sigma}{\sqrt{n}}$ |
-| **Correlation** | Relationship strength | $r = \frac{\text{Cov}(X,Y)}{s_X \cdot s_Y}$ |
-| **Chi-Square** | Categorical test | $\chi^2 = \sum \frac{(O-E)^2}{E}$ |
-| **F-Statistic** | ANOVA | $F = \frac{MS_{between}}{MS_{within}}$ |
+```
+Derivable Judgement/
+├── Derivable Judgement.ipynb              # Main analysis notebook
+├── health_dataset_200_records.csv         # Dataset
+├── Derivable_Judgement_MCQ_Answers.docx   # Study material (MCQs)
+└── README.md                              # Documentation
+```
 
 ---
 
-## ✨ Key Takeaways
+## 📝 Formula Reference Sheet
 
-- ✅ **Inferential Statistics** helps us make decisions about populations using sample data
-- ✅ **Hypothesis testing** requires p-values < 0.05 for statistical significance (typically)
-- ✅ **Confidence intervals** provide a range of plausible values for population parameters
-- ✅ **Different tests** are needed for different types of data (continuous vs. categorical)
-- ✅ **Visualization** helps communicate statistical findings effectively
-- ✅ **Correlation ≠ Causation** - always interpret relationships carefully
+### Common Statistical Formulas
 
----
+**Standard Error:**
+```
+SE = s / √n
+```
 
-## 🤝 Contributing
+**Confidence Interval:**
+```
+CI = x̄ ± z* × SE  (for large samples)
+CI = x̄ ± t* × SE  (for small samples)
+```
 
-Have suggestions for improvement? Feel free to:
-1. 🔀 Fork this repository
-2. 📝 Make your changes
-3. 📤 Submit a pull request
+**t-Test Statistic:**
+```
+t = (x̄₁ - x̄₂) / √(s₁²/n₁ + s₂²/n₂)
+```
 
----
+**Chi-Square Statistic:**
+```
+χ² = Σ [(O - E)² / E]
+```
 
-## 📞 Questions or Issues?
+**F-Statistic (ANOVA):**
+```
+F = Variance Between Groups / Variance Within Groups
+```
 
-If you have questions about this project:
-- 📧 Review the notebook comments
-- 📚 Check the resources section
-- 🎯 Re-read the theoretical foundation
-
----
-
-## 📜 License
-
-This project is educational material and is open for learning purposes.
-
----
-
-## 🙏 Acknowledgments
-
-- Dataset created for educational purposes
-- Built with industry-standard statistical libraries
-- Designed to teach practical statistical decision-making
+**Pearson Correlation:**
+```
+r = Cov(X,Y) / (σₓ × σᵧ)
+```
 
 ---
 
-**Last Updated:** 2026-06-17  
-**Project Status:** ✅ Complete  
-**Version:** 1.0
+## 👨‍💻 Author
 
----
+**Meet Doiya**  
 
-### 🎯 Ready to Learn Statistics? Start with Part A! 📚
+
+
+
+</div>
