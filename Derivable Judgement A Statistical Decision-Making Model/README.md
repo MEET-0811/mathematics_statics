@@ -241,9 +241,7 @@ Pearson's r range: [-1, 1]
 Explore these resources to understand the statistical concepts used in this project:
 
 ### Hypothesis Testing & Confidence Intervals
-[[![Watch on YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/results?search_query=confidence+intervals+statistics)
-](https://drive.google.com/file/d/1ijOKnPrHAF9Lk0EIlWa7UKmZEmToJcA6/view?usp=sharing)
-
+https://drive.google.com/file/d/1ijOKnPrHAF9Lk0EIlWa7UKmZEmToJcA6/view?usp=sharing
 ---
 
 ## 📚 Study Materials
